@@ -13,11 +13,11 @@ jobs:
 
     steps:
       - name: Enviar notificação para Microsoft Teams
-        uses: Ilshidur/action-slack@v1.3.0
+        uses: atc1441/teams-notify-action@v1.4.0
         with:
-          webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          msg: |
-            Notificação do GitHub:
-            - Evento: ${{ github.event_name }}
-            - Repositório: ${{ github.repository }}
-            - Autor: ${{ github.actor }}
+          webhook: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          title: 'GitHub Notification'
+          message: |
+            Evento: ${{ github.event_name }}
+            Repositório: ${{ github.repository }}
+            Autor: ${{ github.actor }}
