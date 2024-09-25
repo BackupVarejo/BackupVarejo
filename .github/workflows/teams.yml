@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Enviar notificação para Microsoft Teams
-        uses: Ilshidur/action-slack@v2
+        uses: Ilshidur/action-slack@v1.3.0
         with:
           webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
           msg: |
