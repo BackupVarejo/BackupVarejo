@@ -10,9 +10,14 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
+
     steps:
       - name: Enviar notificação para Microsoft Teams
-        uses: atlassian/gajira-notify@master
+        uses: Ilshidur/action-slack@v2
         with:
-          url: ${{ secrets.TEAMS_WEBHOOK_URL }}
-          message: "Novo evento no GitHub: ${{ github.event_name }} no repositório ${{ github.repository }}"
+          webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
+          msg: |
+            Notificação do GitHub:
+            - Evento: ${{ github.event_name }}
+            - Repositório: ${{ github.repository }}
+            - Autor: ${{ github.actor }}
